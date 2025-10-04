@@ -903,9 +903,12 @@ groupMasks:
           <gl:DueTime>PT1S</gl:DueTime>
         </Combinator>
       </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Count" DisplayName="NumTrials" />
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:RepeatCount">
-          <rx:Count>40</rx:Count>
+          <rx:Count>60</rx:Count>
         </Combinator>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
