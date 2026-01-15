@@ -1,23 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="0">
+  <WindowSettings Index="1">
+    <Visible>false</Visible>
     <Location>
-      <X>52</X>
-      <Y>52</Y>
+      <X>26</X>
+      <Y>26</Y>
     </Location>
     <Size>
       <Width>336</Width>
-      <Height>82</Height>
+      <Height>65</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ObjectTextVisualizer />
+    </VisualizerSettings>
+    <NestedLayout>
+      <WindowSettings Index="1">
+        <NestedLayout>
+          <WindowSettings Index="6">
+            <Location>
+              <X>278</X>
+              <Y>408</Y>
+            </Location>
+            <Size>
+              <Width>336</Width>
+              <Height>279</Height>
+            </Size>
+            <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+            <VisualizerSettings>
+              <IplImageRotateVisualizer>
+                <InvertHorizontal>false</InvertHorizontal>
+                <InvertVertical>false</InvertVertical>
+                <RotateAngle>0</RotateAngle>
+              </IplImageRotateVisualizer>
+            </VisualizerSettings>
+          </WindowSettings>
+        </NestedLayout>
+      </WindowSettings>
+    </NestedLayout>
+  </WindowSettings>
+  <WindowSettings Index="7">
+    <Location>
+      <X>1069</X>
+      <Y>301</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>251</Height>
     </Size>
     <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <ObjectTextVisualizer />
     </VisualizerSettings>
   </WindowSettings>
-  <WindowSettings Index="2">
+  <WindowSettings Index="8">
+    <Visible>false</Visible>
     <Location>
-      <X>234</X>
-      <Y>234</Y>
+      <X>182</X>
+      <Y>182</Y>
     </Location>
     <Size>
       <Width>336</Width>
