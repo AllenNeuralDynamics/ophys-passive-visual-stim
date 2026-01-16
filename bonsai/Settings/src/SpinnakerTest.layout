@@ -3,61 +3,74 @@
   <WindowSettings Index="1">
     <Visible>false</Visible>
     <Location>
-      <X>26</X>
-      <Y>26</Y>
+      <X>332</X>
+      <Y>368</Y>
     </Location>
     <Size>
       <Width>336</Width>
-      <Height>65</Height>
+      <Height>279</Height>
     </Size>
-    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
     <VisualizerSettings>
-      <ObjectTextVisualizer />
+      <IplImageRotateVisualizer>
+        <InvertHorizontal>false</InvertHorizontal>
+        <InvertVertical>false</InvertVertical>
+        <RotateAngle>0</RotateAngle>
+      </IplImageRotateVisualizer>
     </VisualizerSettings>
-    <NestedLayout>
-      <WindowSettings Index="1">
-        <NestedLayout>
-          <WindowSettings Index="6">
-            <Location>
-              <X>278</X>
-              <Y>408</Y>
-            </Location>
-            <Size>
-              <Width>336</Width>
-              <Height>279</Height>
-            </Size>
-            <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
-            <VisualizerSettings>
-              <IplImageRotateVisualizer>
-                <InvertHorizontal>false</InvertHorizontal>
-                <InvertVertical>false</InvertVertical>
-                <RotateAngle>0</RotateAngle>
-              </IplImageRotateVisualizer>
-            </VisualizerSettings>
-          </WindowSettings>
-        </NestedLayout>
-      </WindowSettings>
-    </NestedLayout>
   </WindowSettings>
-  <WindowSettings Index="7">
+  <WindowSettings Index="14">
     <Location>
-      <X>1069</X>
-      <Y>301</Y>
+      <X>1127</X>
+      <Y>209</Y>
     </Location>
     <Size>
       <Width>336</Width>
-      <Height>251</Height>
+      <Height>657</Height>
     </Size>
-    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
     <VisualizerSettings>
-      <ObjectTextVisualizer />
+      <TableLayoutPanelVisualizer>
+        <MashupSettings>
+          <Source>8</Source>
+          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageRotateVisualizer>
+              <InvertHorizontal>false</InvertHorizontal>
+              <InvertVertical>false</InvertVertical>
+              <RotateAngle>0</RotateAngle>
+            </IplImageRotateVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <Source>10</Source>
+          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageRotateVisualizer>
+              <InvertHorizontal>false</InvertHorizontal>
+              <InvertVertical>false</InvertVertical>
+              <RotateAngle>0</RotateAngle>
+            </IplImageRotateVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <Source>12</Source>
+          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageRotateVisualizer>
+              <InvertHorizontal>false</InvertHorizontal>
+              <InvertVertical>false</InvertVertical>
+              <RotateAngle>0</RotateAngle>
+            </IplImageRotateVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+      </TableLayoutPanelVisualizer>
     </VisualizerSettings>
   </WindowSettings>
-  <WindowSettings Index="8">
-    <Visible>false</Visible>
+  <WindowSettings Index="21">
     <Location>
-      <X>182</X>
-      <Y>182</Y>
+      <X>704</X>
+      <Y>173</Y>
     </Location>
     <Size>
       <Width>336</Width>

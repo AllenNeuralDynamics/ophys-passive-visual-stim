@@ -1,104 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="18">
-    <NestedLayout>
-      <WindowSettings Index="1">
-        <NestedLayout>
-          <WindowSettings Index="6">
-            <Location>
-              <X>64</X>
-              <Y>189</Y>
-            </Location>
-            <Size>
-              <Width>336</Width>
-              <Height>279</Height>
-            </Size>
-            <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
-            <VisualizerSettings>
-              <IplImageVisualizer />
-            </VisualizerSettings>
-          </WindowSettings>
-        </NestedLayout>
-      </WindowSettings>
-    </NestedLayout>
-  </WindowSettings>
-  <WindowSettings Index="19">
-    <NestedLayout>
-      <WindowSettings Index="1">
-        <NestedLayout>
-          <WindowSettings Index="6">
-            <Location>
-              <X>226</X>
-              <Y>307</Y>
-            </Location>
-            <Size>
-              <Width>336</Width>
-              <Height>279</Height>
-            </Size>
-            <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
-            <VisualizerSettings>
-              <IplImageVisualizer />
-            </VisualizerSettings>
-          </WindowSettings>
-        </NestedLayout>
-      </WindowSettings>
-    </NestedLayout>
-  </WindowSettings>
-  <WindowSettings Index="20">
-    <NestedLayout>
-      <WindowSettings Index="1">
-        <NestedLayout>
-          <WindowSettings Index="6">
-            <Location>
-              <X>530</X>
-              <Y>168</Y>
-            </Location>
-            <Size>
-              <Width>336</Width>
-              <Height>279</Height>
-            </Size>
-            <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
-            <VisualizerSettings>
-              <IplImageVisualizer />
-            </VisualizerSettings>
-          </WindowSettings>
-        </NestedLayout>
-      </WindowSettings>
-    </NestedLayout>
-  </WindowSettings>
-  <WindowSettings Index="116">
+  <WindowSettings Index="24">
     <Location>
-      <X>72</X>
-      <Y>513</Y>
+      <X>158</X>
+      <Y>124</Y>
     </Location>
     <Size>
-      <Width>953</Width>
-      <Height>417</Height>
+      <Width>954</Width>
+      <Height>299</Height>
     </Size>
-    <VisualizerTypeName>Bonsai.Design.Visualizers.TableLayoutPanelVisualizer</VisualizerTypeName>
+    <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>111</Source>
-          <VisualizerTypeName>Bonsai.Design.Visualizers.RollingGraphVisualizer</VisualizerTypeName>
+          <Source>18</Source>
+          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageRotateVisualizer>
+              <InvertHorizontal>false</InvertHorizontal>
+              <InvertVertical>false</InvertVertical>
+              <RotateAngle>0</RotateAngle>
+            </IplImageRotateVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <Source>20</Source>
+          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageRotateVisualizer>
+              <InvertHorizontal>false</InvertHorizontal>
+              <InvertVertical>false</InvertVertical>
+              <RotateAngle>0</RotateAngle>
+            </IplImageRotateVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <Source>22</Source>
+          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageRotateVisualizer>
+              <InvertHorizontal>false</InvertHorizontal>
+              <InvertVertical>false</InvertVertical>
+              <RotateAngle>0</RotateAngle>
+            </IplImageRotateVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+      </TableLayoutPanelVisualizer>
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="123">
+    <Location>
+      <X>150</X>
+      <Y>468</Y>
+    </Location>
+    <Size>
+      <Width>1085</Width>
+      <Height>517</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <TableLayoutPanelVisualizer>
+        <MashupSettings>
+          <Source>118</Source>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>9</Capacity>
               <Min>0</Min>
-              <Max>400</Max>
+              <Max>1.1</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>114</Source>
-          <VisualizerTypeName>Bonsai.Design.Visualizers.RollingGraphVisualizer</VisualizerTypeName>
+          <Source>121</Source>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>24194</Capacity>
-              <Min>28.391465285022523</Min>
-              <Max>3909.6474727065897</Max>
-              <AutoScale>false</AutoScale>
+              <Min>0</Min>
+              <Max>30</Max>
+              <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
         </MashupSettings>

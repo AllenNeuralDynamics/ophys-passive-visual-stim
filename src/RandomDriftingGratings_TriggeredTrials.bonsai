@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.5"
+<WorkflowBuilder Version="2.9.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
@@ -13,7 +13,8 @@
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
+                 xmlns:zg="clr-namespace:Bonsai.Gui.ZedGraph;assembly=Bonsai.Gui.ZedGraph"
+                 xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -185,7 +186,7 @@
                 <Combinator xsi:type="rx:Zip" />
               </Expression>
               <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:CombineTimestamp" />
+                <Combinator xsi:type="rx:CreateTimestamped" />
               </Expression>
               <Expression xsi:type="Format">
                 <Format>{0}/{1:yyyyMMdd}</Format>
@@ -760,20 +761,26 @@ groupMasks:
         <DateTimeOffset>0001-01-01T00:00:00.0000000+00:00</DateTimeOffset>
         <SubjectName>LoggingRootPath</SubjectName>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\behavior_camera.bonsai">
-        <Format>{0}/face_video.avi</Format>
-        <Index>0</Index>
-        <EventName>FaceCamera</EventName>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="Extensions\behavior_camera.bonsai">
+          <Format>{0}/face_video.avi</Format>
+          <Index>0</Index>
+          <EventName>FaceCamera</EventName>
+        </Builder>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\behavior_camera.bonsai">
-        <Format>{0}/body_video.avi</Format>
-        <Index>1</Index>
-        <EventName>BodyCamera</EventName>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="Extensions\behavior_camera.bonsai">
+          <Format>{0}/body_video.avi</Format>
+          <Index>1</Index>
+          <EventName>BodyCamera</EventName>
+        </Builder>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\behavior_camera.bonsai">
-        <Format>{0}/eye_video.avi</Format>
-        <Index>2</Index>
-        <EventName>EyeCamera</EventName>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="Extensions\behavior_camera.bonsai">
+          <Format>{0}/eye_video.avi</Format>
+          <Index>2</Index>
+          <EventName>EyeCamera</EventName>
+        </Builder>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p2:GratingsSpecification">
@@ -941,9 +948,9 @@ groupMasks:
         <LocationY>-20</LocationY>
         <Layer>2</Layer>
         <Angle>0</Angle>
-        <ColorR>0</ColorR>
-        <ColorG>0</ColorG>
-        <ColorB>0</ColorB>
+        <ColorR>1</ColorR>
+        <ColorG>1</ColorG>
+        <ColorB>1</ColorB>
         <ColorA>1</ColorA>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -988,7 +995,7 @@ groupMasks:
         <Text><![CDATA[]]></Text>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:/BonsaiData/823520/823520_20250929T124713/orientations_.csv</io:FileName>
+        <io:FileName>C:/BonsaiData/000000/000000_20260115T170322/orientations_.csv</io:FileName>
         <io:Append>true</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>FileCount</io:Suffix>
@@ -1044,7 +1051,7 @@ groupMasks:
         <Text><![CDATA[]]></Text>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:/BonsaiData/823520/823520_20250929T124713/frameClk_.csv</io:FileName>
+        <io:FileName>C:/BonsaiData/000000/000000_20260115T170322/frameClk_.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>FileCount</io:Suffix>
@@ -1166,7 +1173,7 @@ groupMasks:
         <Text><![CDATA[]]></Text>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:/BonsaiData/823520/823520_20250929T124713/analogInputs_.csv</io:FileName>
+        <io:FileName>C:/BonsaiData/000000/000000_20260115T170322/analogInputs_.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>FileCount</io:Suffix>
@@ -1178,33 +1185,36 @@ groupMasks:
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="num:RadianToDegree" />
       </Expression>
-      <Expression xsi:type="viz:RollingGraphBuilder">
-        <viz:SymbolType>Square</viz:SymbolType>
-        <viz:LineWidth>1</viz:LineWidth>
-        <viz:Capacity>9</viz:Capacity>
-        <viz:Min xsi:nil="true" />
-        <viz:Max xsi:nil="true" />
+      <Expression xsi:type="zg:RollingGraphBuilder">
+        <zg:SymbolType>Square</zg:SymbolType>
+        <zg:LineWidth>1</zg:LineWidth>
+        <zg:CurveSettings />
+        <zg:Capacity>9</zg:Capacity>
+        <zg:Min xsi:nil="true" />
+        <zg:Max xsi:nil="true" />
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
       <Expression xsi:type="SubscribeSubject">
         <Name>analogData</Name>
       </Expression>
-      <Expression xsi:type="viz:RollingGraphBuilder">
-        <viz:IndexSelector />
-        <viz:ValueSelector>Value.AnalogInput0,Value.AnalogInput1</viz:ValueSelector>
-        <viz:SymbolType>None</viz:SymbolType>
-        <viz:LineWidth>1</viz:LineWidth>
-        <viz:Capacity>24194</viz:Capacity>
-        <viz:Min xsi:nil="true" />
-        <viz:Max xsi:nil="true" />
+      <Expression xsi:type="zg:RollingGraphBuilder">
+        <zg:ValueSelector>Value.AnalogInput0,Value.AnalogInput1</zg:ValueSelector>
+        <zg:SymbolType>None</zg:SymbolType>
+        <zg:LineWidth>1</zg:LineWidth>
+        <zg:CurveSettings />
+        <zg:Capacity>24194</zg:Capacity>
+        <zg:Min xsi:nil="true" />
+        <zg:Max xsi:nil="true" />
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="viz:TableLayoutPanelBuilder">
-        <viz:ColumnCount>1</viz:ColumnCount>
-        <viz:RowCount>2</viz:RowCount>
-        <viz:ColumnStyles />
-        <viz:RowStyles />
-        <viz:CellSpans />
+      <Expression xsi:type="gui:TableLayoutPanelBuilder">
+        <gui:Enabled>true</gui:Enabled>
+        <gui:Visible>true</gui:Visible>
+        <gui:ColumnCount>1</gui:ColumnCount>
+        <gui:RowCount>2</gui:RowCount>
+        <gui:ColumnStyles />
+        <gui:RowStyles />
+        <gui:CellSpans />
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>BehaviorEvents</Name>
@@ -1255,7 +1265,7 @@ groupMasks:
         <Text><![CDATA[]]></Text>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:/BonsaiData/823520/823520_20250929T124713/all_.csv</io:FileName>
+        <io:FileName>C:/BonsaiData/000000/000000_20260115T170322/all_.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>FileCount</io:Suffix>
@@ -1269,6 +1279,33 @@ groupMasks:
       </Expression>
       <Expression xsi:type="rx:BehaviorSubject">
         <Name>analogData</Name>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\spinnaker_behavior_camera.bonsai">
+        <Format>{0}/eye_video.avi</Format>
+        <SerialNumber>25092545</SerialNumber>
+        <EventName>EyeCamera</EventName>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\spinnaker_behavior_camera.bonsai">
+        <Format>{0}/face_video.avi</Format>
+        <SerialNumber>25092525</SerialNumber>
+        <EventName>FaceCamera</EventName>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\spinnaker_behavior_camera.bonsai">
+        <Format>{0}/body_video.avi</Format>
+        <SerialNumber>25092522</SerialNumber>
+        <EventName>BodyCamera</EventName>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="gui:TableLayoutPanelBuilder">
+        <gui:Enabled>true</gui:Enabled>
+        <gui:Visible>true</gui:Visible>
+        <gui:ColumnCount>3</gui:ColumnCount>
+        <gui:RowCount>1</gui:RowCount>
+        <gui:ColumnStyles />
+        <gui:RowStyles />
+        <gui:CellSpans />
       </Expression>
     </Nodes>
     <Edges>
@@ -1394,6 +1431,12 @@ groupMasks:
       <Edge From="130" To="131" Label="Source3" />
       <Edge From="132" To="133" Label="Source1" />
       <Edge From="133" To="134" Label="Source1" />
+      <Edge From="135" To="136" Label="Source1" />
+      <Edge From="136" To="141" Label="Source1" />
+      <Edge From="137" To="138" Label="Source1" />
+      <Edge From="138" To="141" Label="Source2" />
+      <Edge From="139" To="140" Label="Source1" />
+      <Edge From="140" To="141" Label="Source3" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
