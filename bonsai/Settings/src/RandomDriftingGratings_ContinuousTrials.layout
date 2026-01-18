@@ -48,7 +48,21 @@
       </TableLayoutPanelVisualizer>
     </VisualizerSettings>
   </WindowSettings>
-  <WindowSettings Index="123">
+  <WindowSettings Index="30">
+    <Location>
+      <X>234</X>
+      <Y>234</Y>
+    </Location>
+    <Size>
+      <Width>743</Width>
+      <Height>506</Height>
+    </Size>
+    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ObjectTextVisualizer />
+    </VisualizerSettings>
+  </WindowSettings>
+  <WindowSettings Index="115">
     <Location>
       <X>150</X>
       <Y>468</Y>
@@ -67,7 +81,7 @@
             <RollingGraphVisualizer>
               <Capacity>9</Capacity>
               <Min>0</Min>
-              <Max>1.1</Max>
+              <Max>400</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
@@ -79,7 +93,7 @@
             <RollingGraphVisualizer>
               <Capacity>24194</Capacity>
               <Min>0</Min>
-              <Max>30</Max>
+              <Max>25</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
