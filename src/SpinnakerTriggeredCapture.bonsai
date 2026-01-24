@@ -7,8 +7,8 @@
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:p2="clr-namespace:AllenNeuralDynamics.Core;assembly=AllenNeuralDynamics.Core"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
-                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:ui="clr-namespace:Bonsai.Design;assembly=Bonsai.Design"
                  xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -480,39 +480,14 @@
           <Property Name="FrameRate" />
         </PropertyMappings>
       </Expression>
-      <Expression xsi:type="rx:Defer">
-        <Name>LogSpinnakerFfmpeg</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="WorkflowInput">
-              <Name>Source1</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="FrameRate" />
-              <Property Name="Modality" />
-              <Property Name="LogName" />
-              <Property Name="VideoExtension" />
-              <Property Name="OutputArguments" />
-              <Property Name="InputArguments" />
-              <Property Name="Verbosity" />
-            </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="AllenNeuralDynamics.Core:LogSpinnakerFfmpeg.bonsai">
-              <Modality>BehaviorVideos</Modality>
-              <LogName>FaceCamera</LogName>
-              <VideoExtension>mp4</VideoExtension>
-              <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
-              <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
-              <Verbosity>Verbose</Verbosity>
-              <FrameRate>30</FrameRate>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="2" Label="Source1" />
-            <Edge From="1" To="2" Label="Source2" />
-            <Edge From="2" To="3" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogSpinnakerFfmpegDefer.bonsai">
+        <FrameRate>30</FrameRate>
+        <Modality>BehaviorVideos</Modality>
+        <LogName>FaceCamera</LogName>
+        <VideoExtension>mp4</VideoExtension>
+        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
+        <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
+        <Verbosity>Verbose</Verbosity>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
       <Expression xsi:type="SubscribeSubject">
@@ -523,39 +498,14 @@
           <Property Name="FrameRate" />
         </PropertyMappings>
       </Expression>
-      <Expression xsi:type="rx:Defer">
-        <Name>LogSpinnakerFfmpeg</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="WorkflowInput">
-              <Name>Source1</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="FrameRate" />
-              <Property Name="Modality" />
-              <Property Name="LogName" />
-              <Property Name="VideoExtension" />
-              <Property Name="OutputArguments" />
-              <Property Name="InputArguments" />
-              <Property Name="Verbosity" />
-            </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="AllenNeuralDynamics.Core:LogSpinnakerFfmpeg.bonsai">
-              <Modality>BehaviorVideos</Modality>
-              <LogName>EyeCamera</LogName>
-              <VideoExtension>mp4</VideoExtension>
-              <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
-              <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
-              <Verbosity>Verbose</Verbosity>
-              <FrameRate>30</FrameRate>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="2" Label="Source1" />
-            <Edge From="1" To="2" Label="Source2" />
-            <Edge From="2" To="3" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogSpinnakerFfmpegDefer.bonsai">
+        <FrameRate>30</FrameRate>
+        <Modality>BehaviorVideos</Modality>
+        <LogName>EyeCamera</LogName>
+        <VideoExtension>mp4</VideoExtension>
+        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
+        <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
+        <Verbosity>Verbose</Verbosity>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
       <Expression xsi:type="SubscribeSubject">
@@ -566,102 +516,18 @@
           <Property Name="FrameRate" />
         </PropertyMappings>
       </Expression>
-      <Expression xsi:type="rx:Defer">
-        <Name>LogSpinnakerFfmpeg</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="WorkflowInput">
-              <Name>Source1</Name>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="FrameRate" />
-              <Property Name="Modality" />
-              <Property Name="LogName" />
-              <Property Name="VideoExtension" />
-              <Property Name="OutputArguments" />
-              <Property Name="InputArguments" />
-              <Property Name="Verbosity" />
-            </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="AllenNeuralDynamics.Core:LogSpinnakerFfmpeg.bonsai">
-              <Modality>BehaviorVideos</Modality>
-              <LogName>BodyCamera</LogName>
-              <VideoExtension>mp4</VideoExtension>
-              <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
-              <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
-              <Verbosity>Verbose</Verbosity>
-              <FrameRate>30</FrameRate>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="2" Label="Source1" />
-            <Edge From="1" To="2" Label="Source2" />
-            <Edge From="2" To="3" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogSpinnakerFfmpegDefer.bonsai">
+        <FrameRate>30</FrameRate>
+        <Modality>BehaviorVideos</Modality>
+        <LogName>BodyCamera</LogName>
+        <VideoExtension>mp4</VideoExtension>
+        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
+        <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
+        <Verbosity>Verbose</Verbosity>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="GroupWorkflow">
-        <Name>RisingEdgeTimes</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>CuttlefishEvents</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:FilterMessageType">
-                <harp:FilterType>Include</harp:FilterType>
-                <harp:MessageType>Event</harp:MessageType>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="p1:Parse">
-              <harp:Register xsi:type="p1:TimestampedRisingEdgeEvent" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Skip">
-                <rx:Count>1</rx:Count>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Value</Selector>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Port" />
-            </Expression>
-            <Expression xsi:type="BitwiseAnd">
-              <Operand xsi:type="WorkflowProperty" TypeArguments="p1:Ports">
-                <Value>Port4</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="scr:ExpressionCondition">
-              <scr:Expression>it&gt;0</scr:Expression>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Seconds</Selector>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="3" To="8" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="6" Label="Source2" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="9" Label="Source1" />
-            <Edge From="8" To="9" Label="Source2" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\GetRisingEdgeTimes.bonsai">
+        <Port>Port4</Port>
       </Expression>
       <Expression xsi:type="rx:PublishSubject">
         <Name>FaceCameraTriggerEvents</Name>
@@ -678,67 +544,8 @@
       <Expression xsi:type="VisualizerMapping">
         <VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
       </Expression>
-      <Expression xsi:type="GroupWorkflow">
-        <Name>RisingEdgeTimes</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>CuttlefishEvents</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:FilterMessageType">
-                <harp:FilterType>Include</harp:FilterType>
-                <harp:MessageType>Event</harp:MessageType>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="p1:Parse">
-              <harp:Register xsi:type="p1:TimestampedRisingEdgeEvent" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Skip">
-                <rx:Count>1</rx:Count>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Value</Selector>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Port" />
-            </Expression>
-            <Expression xsi:type="BitwiseAnd">
-              <Operand xsi:type="WorkflowProperty" TypeArguments="p1:Ports">
-                <Value>Port2</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="scr:ExpressionCondition">
-              <scr:Expression>it&gt;0</scr:Expression>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Seconds</Selector>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="3" To="8" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="6" Label="Source2" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="9" Label="Source1" />
-            <Edge From="8" To="9" Label="Source2" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\GetRisingEdgeTimes.bonsai">
+        <Port>Port2</Port>
       </Expression>
       <Expression xsi:type="rx:PublishSubject">
         <Name>EyeCameraTriggerEvents</Name>
@@ -755,67 +562,8 @@
       <Expression xsi:type="VisualizerMapping">
         <VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
       </Expression>
-      <Expression xsi:type="GroupWorkflow">
-        <Name>RisingEdgeTimes</Name>
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>CuttlefishEvents</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:FilterMessageType">
-                <harp:FilterType>Include</harp:FilterType>
-                <harp:MessageType>Event</harp:MessageType>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="p1:Parse">
-              <harp:Register xsi:type="p1:TimestampedRisingEdgeEvent" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Skip">
-                <rx:Count>1</rx:Count>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Value</Selector>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Port" />
-            </Expression>
-            <Expression xsi:type="BitwiseAnd">
-              <Operand xsi:type="WorkflowProperty" TypeArguments="p1:Ports">
-                <Value>Port0</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="scr:ExpressionCondition">
-              <scr:Expression>it&gt;0</scr:Expression>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Seconds</Selector>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="WorkflowOutput" />
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
-            <Edge From="3" To="8" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="6" Label="Source2" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="9" Label="Source1" />
-            <Edge From="8" To="9" Label="Source2" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\GetRisingEdgeTimes.bonsai">
+        <Port>Port0</Port>
       </Expression>
       <Expression xsi:type="rx:PublishSubject">
         <Name>BodyCameraTriggerEvents</Name>
@@ -836,7 +584,7 @@
         <Name>FaceCameraFrameEvents</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
-        <Selector>Seconds</Selector>
+        <Selector>Value.ChunkData.Timestamp</Selector>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Difference">
@@ -846,6 +594,11 @@
       <Expression xsi:type="scr:ExpressionTransform">
         <scr:Name>Invert (1/x)</scr:Name>
         <scr:Expression>1/it</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="DoubleProperty">
+          <Value>1000000000</Value>
+        </Operand>
       </Expression>
       <Expression xsi:type="VisualizerMapping">
         <VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
@@ -854,7 +607,7 @@
         <Name>EyeCameraFrameEvents</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
-        <Selector>Seconds</Selector>
+        <Selector>Value.ChunkData.Timestamp</Selector>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Difference">
@@ -864,6 +617,11 @@
       <Expression xsi:type="scr:ExpressionTransform">
         <scr:Name>Invert (1/x)</scr:Name>
         <scr:Expression>1/it</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="DoubleProperty">
+          <Value>1000000000</Value>
+        </Operand>
       </Expression>
       <Expression xsi:type="VisualizerMapping">
         <VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
@@ -872,7 +630,7 @@
         <Name>BodyCameraFrameEvents</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
-        <Selector>Seconds</Selector>
+        <Selector>Value.ChunkData.Timestamp</Selector>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Difference">
@@ -882,6 +640,11 @@
       <Expression xsi:type="scr:ExpressionTransform">
         <scr:Name>Invert (1/x)</scr:Name>
         <scr:Expression>1/it</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="DoubleProperty">
+          <Value>1000000000</Value>
+        </Operand>
       </Expression>
       <Expression xsi:type="VisualizerMapping">
         <VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
@@ -941,45 +704,48 @@
       <Edge From="39" To="41" Label="Source1" />
       <Edge From="40" To="41" Label="Source2" />
       <Edge From="41" To="42" Label="Source1" />
-      <Edge From="42" To="81" Label="Source1" />
+      <Edge From="42" To="84" Label="Source1" />
       <Edge From="43" To="45" Label="Source1" />
       <Edge From="44" To="45" Label="Source2" />
       <Edge From="45" To="46" Label="Source1" />
-      <Edge From="46" To="81" Label="Source2" />
+      <Edge From="46" To="84" Label="Source2" />
       <Edge From="47" To="49" Label="Source1" />
       <Edge From="48" To="49" Label="Source2" />
       <Edge From="49" To="50" Label="Source1" />
-      <Edge From="50" To="81" Label="Source3" />
+      <Edge From="50" To="84" Label="Source3" />
       <Edge From="51" To="52" Label="Source1" />
       <Edge From="52" To="53" Label="Source1" />
       <Edge From="53" To="54" Label="Source1" />
       <Edge From="54" To="55" Label="Source1" />
-      <Edge From="55" To="81" Label="Source4" />
+      <Edge From="55" To="84" Label="Source4" />
       <Edge From="56" To="57" Label="Source1" />
       <Edge From="57" To="58" Label="Source1" />
       <Edge From="58" To="59" Label="Source1" />
       <Edge From="59" To="60" Label="Source1" />
-      <Edge From="60" To="81" Label="Source5" />
+      <Edge From="60" To="84" Label="Source5" />
       <Edge From="61" To="62" Label="Source1" />
       <Edge From="62" To="63" Label="Source1" />
       <Edge From="63" To="64" Label="Source1" />
       <Edge From="64" To="65" Label="Source1" />
-      <Edge From="65" To="81" Label="Source6" />
+      <Edge From="65" To="84" Label="Source6" />
       <Edge From="66" To="67" Label="Source1" />
       <Edge From="67" To="68" Label="Source1" />
       <Edge From="68" To="69" Label="Source1" />
       <Edge From="69" To="70" Label="Source1" />
-      <Edge From="70" To="81" Label="Source7" />
-      <Edge From="71" To="72" Label="Source1" />
+      <Edge From="70" To="71" Label="Source1" />
+      <Edge From="71" To="84" Label="Source7" />
       <Edge From="72" To="73" Label="Source1" />
       <Edge From="73" To="74" Label="Source1" />
       <Edge From="74" To="75" Label="Source1" />
-      <Edge From="75" To="81" Label="Source8" />
+      <Edge From="75" To="76" Label="Source1" />
       <Edge From="76" To="77" Label="Source1" />
-      <Edge From="77" To="78" Label="Source1" />
+      <Edge From="77" To="84" Label="Source8" />
       <Edge From="78" To="79" Label="Source1" />
       <Edge From="79" To="80" Label="Source1" />
-      <Edge From="80" To="81" Label="Source9" />
+      <Edge From="80" To="81" Label="Source1" />
+      <Edge From="81" To="82" Label="Source1" />
+      <Edge From="82" To="83" Label="Source1" />
+      <Edge From="83" To="84" Label="Source9" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
