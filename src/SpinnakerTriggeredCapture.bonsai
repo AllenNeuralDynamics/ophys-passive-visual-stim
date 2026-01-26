@@ -153,7 +153,7 @@
             <p2:Width>0</p2:Width>
             <p2:Height>0</p2:Height>
           </p2:RegionOfInterest>
-          <p2:AdcBitDepth xsi:nil="true" />
+          <p2:AdcBitDepth>Bit8</p2:AdcBitDepth>
         </Combinator>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
@@ -179,7 +179,7 @@
           <spk:SerialNumber>25092545</spk:SerialNumber>
           <spk:ColorProcessing>Default</spk:ColorProcessing>
           <p2:ExposureTime>20000</p2:ExposureTime>
-          <p2:Gain>30</p2:Gain>
+          <p2:Gain>15</p2:Gain>
           <p2:Binning>1</p2:Binning>
           <p2:Gamma xsi:nil="true" />
           <p2:PixelFormat>Mono8</p2:PixelFormat>
@@ -189,7 +189,7 @@
             <p2:Width>0</p2:Width>
             <p2:Height>0</p2:Height>
           </p2:RegionOfInterest>
-          <p2:AdcBitDepth xsi:nil="true" />
+          <p2:AdcBitDepth>Bit8</p2:AdcBitDepth>
         </Combinator>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
@@ -214,7 +214,7 @@
           <spk:Index xsi:nil="true" />
           <spk:SerialNumber>25092522</spk:SerialNumber>
           <spk:ColorProcessing>Default</spk:ColorProcessing>
-          <p2:ExposureTime>20000</p2:ExposureTime>
+          <p2:ExposureTime>10000</p2:ExposureTime>
           <p2:Gain>0</p2:Gain>
           <p2:Binning>1</p2:Binning>
           <p2:Gamma xsi:nil="true" />
@@ -225,7 +225,7 @@
             <p2:Width>0</p2:Width>
             <p2:Height>0</p2:Height>
           </p2:RegionOfInterest>
-          <p2:AdcBitDepth xsi:nil="true" />
+          <p2:AdcBitDepth>Bit8</p2:AdcBitDepth>
         </Combinator>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
@@ -485,8 +485,8 @@
         <Modality>BehaviorVideos</Modality>
         <LogName>FaceCamera</LogName>
         <VideoExtension>mp4</VideoExtension>
-        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
-        <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
+        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full,format=bgr24,scale=out_range=full" -c:v h264_nvenc -pix_fmt yuv420p -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -metadata author="Allen Institute for Neural Dynamics" -maxrate 700M -bufsize 350M</OutputArguments>
+        <InputArguments>-colorspace bt709 -color_primaries bt709 -color_range full -color_trc linear</InputArguments>
         <Verbosity>Verbose</Verbosity>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
@@ -503,8 +503,8 @@
         <Modality>BehaviorVideos</Modality>
         <LogName>EyeCamera</LogName>
         <VideoExtension>mp4</VideoExtension>
-        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
-        <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
+        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full,format=bgr24,scale=out_range=full" -c:v h264_nvenc -pix_fmt yuv420p -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -metadata author="Allen Institute for Neural Dynamics" -maxrate 700M -bufsize 350M</OutputArguments>
+        <InputArguments>-colorspace bt709 -color_primaries bt709 -color_range full -color_trc linear</InputArguments>
         <Verbosity>Verbose</Verbosity>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
@@ -521,8 +521,8 @@
         <Modality>BehaviorVideos</Modality>
         <LogName>BodyCamera</LogName>
         <VideoExtension>mp4</VideoExtension>
-        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full" -c:v h264_nvenc -pix_fmt nv12 -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -maxrate 700M -bufsize 350M</OutputArguments>
-        <InputArguments>-colorspace rgb -color_primaries bt709 -color_trc linear</InputArguments>
+        <OutputArguments>-vf "scale=out_color_matrix=bt709:out_range=full,format=bgr24,scale=out_range=full" -c:v h264_nvenc -pix_fmt yuv420p -color_range full -colorspace bt709 -color_trc linear -tune hq -preset p4 -rc vbr -cq 12 -b:v 0M -metadata author="Allen Institute for Neural Dynamics" -maxrate 700M -bufsize 350M</OutputArguments>
+        <InputArguments>-colorspace bt709 -color_primaries bt709 -color_range full -color_trc linear</InputArguments>
         <Verbosity>Verbose</Verbosity>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
