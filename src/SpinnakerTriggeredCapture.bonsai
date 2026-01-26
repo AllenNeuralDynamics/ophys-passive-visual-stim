@@ -662,6 +662,34 @@
         </gui:RowStyles>
         <gui:CellSpans />
       </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>FaceCameraFrameEvents</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="JitterThreshold" Category="OnlineQC" />
+        <Property Name="SnoozeTime" Category="OnlineQC" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQC.bonsai">
+        <JitterThreshold>0.0005</JitterThreshold>
+        <SnoozeTime>PT5S</SnoozeTime>
+        <CameraName>FaceCamera</CameraName>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>EyeCameraFrameEvents</Name>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQC.bonsai">
+        <JitterThreshold>0.0005</JitterThreshold>
+        <SnoozeTime>PT5S</SnoozeTime>
+        <CameraName>EyeCamera</CameraName>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>BodyCameraFrameEvents</Name>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQC.bonsai">
+        <JitterThreshold>0.0005</JitterThreshold>
+        <SnoozeTime>PT5S</SnoozeTime>
+        <CameraName>BodyCamera</CameraName>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="2" To="3" Label="Source1" />
@@ -746,6 +774,12 @@
       <Edge From="81" To="82" Label="Source1" />
       <Edge From="82" To="83" Label="Source1" />
       <Edge From="83" To="84" Label="Source9" />
+      <Edge From="85" To="87" Label="Source1" />
+      <Edge From="86" To="87" Label="Source2" />
+      <Edge From="86" To="89" Label="Source2" />
+      <Edge From="86" To="91" Label="Source2" />
+      <Edge From="88" To="89" Label="Source1" />
+      <Edge From="90" To="91" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

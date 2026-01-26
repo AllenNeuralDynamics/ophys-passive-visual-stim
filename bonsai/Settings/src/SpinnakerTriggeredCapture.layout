@@ -2,14 +2,6 @@
 <VisualizerLayout Version="2.9.0">
   <WindowSettings Index="0">
     <Visible>false</Visible>
-    <Location>
-      <X>170</X>
-      <Y>104</Y>
-    </Location>
-    <Size>
-      <Width>336</Width>
-      <Height>758</Height>
-    </Size>
     <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <ObjectTextVisualizer />
@@ -17,14 +9,6 @@
   </WindowSettings>
   <WindowSettings Index="51">
     <Visible>false</Visible>
-    <Location>
-      <X>169</X>
-      <Y>214</Y>
-    </Location>
-    <Size>
-      <Width>336</Width>
-      <Height>746</Height>
-    </Size>
     <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <ObjectTextVisualizer />
@@ -32,14 +16,6 @@
   </WindowSettings>
   <WindowSettings Index="52">
     <Visible>false</Visible>
-    <Location>
-      <X>26</X>
-      <Y>26</Y>
-    </Location>
-    <Size>
-      <Width>416</Width>
-      <Height>279</Height>
-    </Size>
     <VisualizerTypeName>Bonsai.Design.Visualizers.TimeSeriesVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <TimeSeriesVisualizer>
@@ -52,14 +28,6 @@
   </WindowSettings>
   <WindowSettings Index="62">
     <Visible>false</Visible>
-    <Location>
-      <X>130</X>
-      <Y>130</Y>
-    </Location>
-    <Size>
-      <Width>336</Width>
-      <Height>65</Height>
-    </Size>
     <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <ObjectTextVisualizer />
@@ -67,12 +35,12 @@
   </WindowSettings>
   <WindowSettings Index="84">
     <Location>
-      <X>651</X>
-      <Y>277</Y>
+      <X>436</X>
+      <Y>212</Y>
     </Location>
     <Size>
-      <Width>908</Width>
-      <Height>348</Height>
+      <Width>1045</Width>
+      <Height>343</Height>
     </Size>
     <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
     <VisualizerSettings>
