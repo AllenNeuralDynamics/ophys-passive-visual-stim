@@ -1,54 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="18">
-    <Location>
-      <X>130</X>
-      <Y>130</Y>
-    </Location>
-    <Size>
-      <Width>1062</Width>
-      <Height>279</Height>
-    </Size>
-    <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
-    <VisualizerSettings>
-      <TableLayoutPanelVisualizer>
-        <MashupSettings>
-          <Source>12</Source>
-          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
-          <VisualizerSettings>
-            <IplImageRotateVisualizer>
-              <InvertHorizontal>false</InvertHorizontal>
-              <InvertVertical>false</InvertVertical>
-              <RotateAngle>0</RotateAngle>
-            </IplImageRotateVisualizer>
-          </VisualizerSettings>
-        </MashupSettings>
-        <MashupSettings>
-          <Source>14</Source>
-          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
-          <VisualizerSettings>
-            <IplImageRotateVisualizer>
-              <InvertHorizontal>false</InvertHorizontal>
-              <InvertVertical>false</InvertVertical>
-              <RotateAngle>0</RotateAngle>
-            </IplImageRotateVisualizer>
-          </VisualizerSettings>
-        </MashupSettings>
-        <MashupSettings>
-          <Source>16</Source>
-          <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
-          <VisualizerSettings>
-            <IplImageRotateVisualizer>
-              <InvertHorizontal>false</InvertHorizontal>
-              <InvertVertical>false</InvertVertical>
-              <RotateAngle>0</RotateAngle>
-            </IplImageRotateVisualizer>
-          </VisualizerSettings>
-        </MashupSettings>
-      </TableLayoutPanelVisualizer>
-    </VisualizerSettings>
-  </WindowSettings>
-  <WindowSettings Index="139">
+  <WindowSettings Index="154">
     <Location>
       <X>100</X>
       <Y>502</Y>
@@ -61,7 +13,7 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>134</Source>
+          <Source>149</Source>
           <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
@@ -73,13 +25,13 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>137</Source>
+          <Source>152</Source>
           <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>24194</Capacity>
               <Min>0</Min>
-              <Max>25</Max>
+              <Max>35</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
