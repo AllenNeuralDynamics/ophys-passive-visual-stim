@@ -40,7 +40,7 @@
     </Location>
     <Size>
       <Width>1045</Width>
-      <Height>343</Height>
+      <Height>350</Height>
     </Size>
     <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
     <VisualizerSettings>
