@@ -728,6 +728,7 @@ groupMasks:
         <Property Name="FileName" DisplayName="GratingTrialParametersFile" Description="CSV specifying the grating parameters to be used in trials" />
       </Expression>
       <Expression xsi:type="io:CsvReader">
+        <io:FileName />
         <io:ListSeparator>,</io:ListSeparator>
         <io:SkipRows>1</io:SkipRows>
       </Expression>
