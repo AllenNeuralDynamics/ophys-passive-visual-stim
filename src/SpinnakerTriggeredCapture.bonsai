@@ -713,7 +713,7 @@
         <Property Name="JitterThreshold" Category="OnlineQC" />
         <Property Name="SnoozeTime" Category="OnlineQC" />
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQC.bonsai">
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQA.bonsai">
         <JitterThreshold>0.0005</JitterThreshold>
         <SnoozeTime>PT5S</SnoozeTime>
         <CameraName>FaceCamera</CameraName>
@@ -721,7 +721,7 @@
       <Expression xsi:type="SubscribeSubject">
         <Name>EyeCameraFrameEvents</Name>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQC.bonsai">
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQA.bonsai">
         <JitterThreshold>0.0005</JitterThreshold>
         <SnoozeTime>PT5S</SnoozeTime>
         <CameraName>EyeCamera</CameraName>
@@ -729,7 +729,7 @@
       <Expression xsi:type="SubscribeSubject">
         <Name>BodyCameraFrameEvents</Name>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQC.bonsai">
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\CameraOnlineQA.bonsai">
         <JitterThreshold>0.0005</JitterThreshold>
         <SnoozeTime>PT5S</SnoozeTime>
         <CameraName>BodyCamera</CameraName>
