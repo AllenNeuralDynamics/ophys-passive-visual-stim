@@ -103,7 +103,7 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>52</Source>
+          <Source>53</Source>
           <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <IplImageRotateVisualizer>
@@ -114,7 +114,7 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>56</Source>
+          <Source>57</Source>
           <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <IplImageRotateVisualizer>
@@ -125,7 +125,7 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>60</Source>
+          <Source>61</Source>
           <VisualizerTypeName>AllenNeuralDynamics.Core.Design.IplImageRotateVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <IplImageRotateVisualizer>
@@ -136,42 +136,42 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>65</Source>
+          <Source>66</Source>
           <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ObjectTextVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>70</Source>
+          <Source>71</Source>
           <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ObjectTextVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>75</Source>
+          <Source>76</Source>
           <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ObjectTextVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>81</Source>
+          <Source>82</Source>
           <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ObjectTextVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>87</Source>
+          <Source>88</Source>
           <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ObjectTextVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>93</Source>
+          <Source>94</Source>
           <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ObjectTextVisualizer />
