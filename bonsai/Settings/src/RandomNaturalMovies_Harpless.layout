@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="44">
+  <WindowSettings Index="45">
     <Visible>false</Visible>
     <Location>
       <X>994</X>
@@ -49,7 +49,7 @@
       </WindowSettings>
     </NestedLayout>
   </WindowSettings>
-  <WindowSettings Index="48">
+  <WindowSettings Index="49">
     <Visible>false</Visible>
     <Location>
       <X>1421</X>
