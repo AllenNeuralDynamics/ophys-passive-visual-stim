@@ -470,7 +470,7 @@ Int32.Parse(it[2]) as TrialDuration)</scr:Expression>
                       <p1:Contrast>1</p1:Contrast>
                       <p1:SpatialFrequency>0.04</p1:SpatialFrequency>
                       <p1:TemporalFrequency>2</p1:TemporalFrequency>
-                      <p1:Orientation>225</p1:Orientation>
+                      <p1:Orientation>90</p1:Orientation>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
@@ -546,7 +546,7 @@ Int32.Parse(it[2]) as TrialDuration)</scr:Expression>
                                 <SpatialFrequency>0.04</SpatialFrequency>
                                 <TemporalFrequency>2</TemporalFrequency>
                                 <Phase>0</Phase>
-                                <Angle>180</Angle>
+                                <Angle>270</Angle>
                                 <SquareWave>false</SquareWave>
                                 <Contrast>1</Contrast>
                                 <DutyCycle xsi:nil="true" />
@@ -966,6 +966,12 @@ Int32.Parse(it[2]) as TrialDuration)</scr:Expression>
           <io:IncludeHeader>true</io:IncludeHeader>
         </Builder>
       </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Value" DisplayName="RootFolder" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty" />
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -1040,6 +1046,7 @@ Int32.Parse(it[2]) as TrialDuration)</scr:Expression>
       <Edge From="78" To="80" Label="Source1" />
       <Edge From="79" To="80" Label="Source2" />
       <Edge From="80" To="81" Label="Source1" />
+      <Edge From="82" To="83" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
