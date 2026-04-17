@@ -199,8 +199,8 @@
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
         <Left>-90</Left>
         <Right>90</Right>
-        <Bottom>-50</Bottom>
-        <Top>50</Top>
+        <Bottom>-90</Bottom>
+        <Top>90</Top>
       </Expression>
       <Expression xsi:type="rx:PublishSubject">
         <Name>Draw</Name>
