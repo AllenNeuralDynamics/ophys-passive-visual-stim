@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="145">
+  <WindowSettings Index="199">
     <Location>
       <X>100</X>
       <Y>502</Y>
@@ -13,25 +13,25 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>149</Source>
+          <Source>194</Source>
           <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>9</Capacity>
               <Min>0</Min>
-              <Max>1.1</Max>
+              <Max>400</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>152</Source>
+          <Source>197</Source>
           <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>24194</Capacity>
               <Min>0</Min>
-              <Max>35</Max>
+              <Max>50</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
