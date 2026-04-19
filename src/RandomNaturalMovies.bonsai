@@ -943,7 +943,7 @@ Single.Parse(it[4]) as ExtentY)</scr:Expression>
         <Combinator xsi:type="rx:Sum" />
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:TakeLast">
+        <Combinator xsi:type="rx:Take">
           <rx:Count>1</rx:Count>
         </Combinator>
       </Expression>
