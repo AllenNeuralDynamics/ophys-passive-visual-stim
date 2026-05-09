@@ -1,6 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="199">
+  <WindowSettings Index="93">
+    <NestedLayout>
+      <WindowSettings Index="4">
+        <NestedLayout>
+          <WindowSettings Index="3">
+            <NestedLayout>
+              <WindowSettings Index="19">
+                <Visible>false</Visible>
+                <Location>
+                  <X>526</X>
+                  <Y>205</Y>
+                </Location>
+                <Size>
+                  <Width>645</Width>
+                  <Height>738</Height>
+                </Size>
+                <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <ObjectTextVisualizer />
+                </VisualizerSettings>
+              </WindowSettings>
+            </NestedLayout>
+          </WindowSettings>
+          <WindowSettings Index="9">
+            <Visible>false</Visible>
+            <Location>
+              <X>868</X>
+              <Y>146</Y>
+            </Location>
+            <Size>
+              <Width>708</Width>
+              <Height>385</Height>
+            </Size>
+            <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+            <VisualizerSettings>
+              <ObjectTextVisualizer />
+            </VisualizerSettings>
+          </WindowSettings>
+        </NestedLayout>
+      </WindowSettings>
+    </NestedLayout>
+  </WindowSettings>
+  <WindowSettings Index="164">
     <Location>
       <X>100</X>
       <Y>502</Y>
@@ -13,7 +55,7 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>194</Source>
+          <Source>159</Source>
           <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
@@ -25,13 +67,13 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>197</Source>
+          <Source>162</Source>
           <VisualizerTypeName>Bonsai.Gui.ZedGraph.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>24194</Capacity>
               <Min>0</Min>
-              <Max>50</Max>
+              <Max>60</Max>
               <AutoScale>true</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
