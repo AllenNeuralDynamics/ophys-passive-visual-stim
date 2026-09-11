@@ -23,6 +23,8 @@ Available session types (single complete session per invocation):
     - sequence_mismatch_no_oddball_long_zebra
     - sensorimotor_mismatch_no_oddball_long_zebra
     - sequence_mismatch_no_oddball_training
+    - gratings_and_zebra
+    - zebra_only
 
 NOTES:
     * open_loop_prerecorded blocks now include explicit oddball_config so prerecorded
@@ -1021,6 +1023,12 @@ def generate_single_session_csv(session_type, output_path, seed=None):
                 {'type': 'movie_zebra', 'duration_minutes': 15, 'label': 'Zebra',
                  'movie_duration_s': 300, 'repeats': 3, 'width': 120, 'height': 95},
                 {'type': 'standard_control', 'duration_minutes': 5, 'label': 'Gratings sweep 2'},
+            ]
+        },
+        'zebra_only': {
+            'blocks': [
+                {'type': 'movie_zebra', 'duration_minutes': 30, 'label': 'Zebra',
+                 'movie_duration_s': 300, 'repeats': 6, 'width': 120, 'height': 95},
             ]
         }
     }
