@@ -466,6 +466,24 @@ def generate_block_trials(block_type, duration_minutes, oddball_config=None, var
                     }
                     trials.append(trial)
     
+    elif block_type == 'gray_screen':
+        trial = {
+            'Contrast': 0,
+            'Delay': 0,
+            'DiameterX': DEFAULT_STIMULUS_SIZE,
+            'DiameterY': DEFAULT_STIMULUS_SIZE,
+            'Duration': duration_seconds,
+            'Orientation': 0,
+            'Spatial_Frequency': 0.04,
+            'Temporal_Frequency': 0,
+            'X': 0,
+            'Y': 0,
+            'Phase': 0,
+            'Trial_Type': 'spontaneous',
+            'Block_Type': 'gray_screen'
+        }
+        trials.append(trial)
+
     elif block_type.startswith('movie_'):
         # Movie presentation blocks
         width = (block_config or {}).get('width', 120)
@@ -500,7 +518,7 @@ def generate_block_trials(block_type, duration_minutes, oddball_config=None, var
         trials = generate_motor_block_trials(block_type, duration_minutes, oddball_config, variant)
     
     # Shuffle trials (except for those which maintains structure)
-    if block_type not in ['open_loop_prerecorded', 'sequential_oddball', 'sequential_long']:
+    if block_type not in ['open_loop_prerecorded', 'sequential_oddball', 'sequential_long', 'gray_screen']:
         # Don't shuffle movie or rf mapping order
         if not block_type.startswith('movie_'):
             random.shuffle(trials)
@@ -1027,6 +1045,7 @@ def generate_single_session_csv(session_type, output_path, seed=None):
         },
         'zebra_only': {
             'blocks': [
+                {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous'},
                 {'type': 'movie_zebra', 'duration_minutes': 30, 'label': 'Zebra',
                  'movie_duration_s': 300, 'repeats': 6, 'width': 120, 'height': 95},
             ]
