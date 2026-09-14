@@ -490,11 +490,11 @@ def generate_block_trials(block_type, duration_minutes, oddball_config=None, var
         height = (block_config or {}).get('height', 95)
         repeats = (block_config or {}).get('repeats', 1)
         movie_duration_s = (block_config or {}).get('movie_duration_s', int(duration_minutes*60))
-        # Each repeat is one row; duration stored in Duration (seconds), Delay=0
+        delay = (block_config or {}).get('delay', 0)
         for rep in range(repeats):
             trial = {
                 'Contrast': 1,
-                'Delay': 0,
+                'Delay': delay,
                 'DiameterX': width,
                 'DiameterY': height,
                 'Duration': movie_duration_s,
@@ -1053,8 +1053,8 @@ def generate_single_session_csv(session_type, output_path, seed=None):
         'zebra_only_test': {
             'blocks': [
                 {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous'},
-                {'type': 'movie_zebra', 'duration_minutes': 10, 'label': 'Zebra',
-                 'movie_duration_s': 300, 'repeats': 2, 'width': 120, 'height': 95},
+                {'type': 'movie_zebra', 'duration_minutes': 5, 'label': 'Zebra',
+                 'movie_duration_s': 300, 'repeats': 1, 'delay': 0.5, 'width': 120, 'height': 95},
             ]
         }
     }
