@@ -1049,6 +1049,13 @@ def generate_single_session_csv(session_type, output_path, seed=None):
                 {'type': 'movie_zebra', 'duration_minutes': 30, 'label': 'Zebra',
                  'movie_duration_s': 300, 'repeats': 6, 'width': 120, 'height': 95},
             ]
+        },
+        'zebra_only_test': {
+            'blocks': [
+                {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous'},
+                {'type': 'movie_zebra', 'duration_minutes': 10, 'label': 'Zebra',
+                 'movie_duration_s': 300, 'repeats': 2, 'width': 120, 'height': 95},
+            ]
         }
     }
     
