@@ -1056,6 +1056,11 @@ def generate_single_session_csv(session_type, output_path, seed=None):
                 {'type': 'movie_zebra', 'duration_minutes': 5, 'label': 'Zebra',
                  'movie_duration_s': 300, 'repeats': 1, 'delay': 0.5, 'width': 120, 'height': 95},
             ]
+        },
+        'gratings_only_test': {
+            'blocks': [
+                {'type': 'standard_control', 'duration_minutes': 0.5, 'label': 'Drifting gratings'},
+            ]
         }
     }
     
