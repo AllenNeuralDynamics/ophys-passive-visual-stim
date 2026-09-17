@@ -1043,18 +1043,12 @@ def generate_single_session_csv(session_type, output_path, seed=None):
                 {'type': 'standard_control', 'duration_minutes': 5, 'label': 'Gratings sweep 2'},
             ]
         },
-        'zebra_only': {
+        'zebra_only_2rep': {
             'blocks': [
-                {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous'},
-                {'type': 'movie_zebra', 'duration_minutes': 30, 'label': 'Zebra',
-                 'movie_duration_s': 300, 'repeats': 6, 'width': 120, 'height': 95},
-            ]
-        },
-        'zebra_only_test': {
-            'blocks': [
-                {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous'},
-                {'type': 'movie_zebra', 'duration_minutes': 5, 'label': 'Zebra',
-                 'movie_duration_s': 300, 'repeats': 1, 'delay': 0.5, 'width': 120, 'height': 95},
+                {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous 1'},
+                {'type': 'movie_zebra', 'duration_minutes': 10, 'label': 'Zebra',
+                 'movie_duration_s': 300, 'repeats': 2, 'width': 120, 'height': 95},
+                {'type': 'gray_screen', 'duration_minutes': 1, 'label': 'Spontaneous 2'},
             ]
         },
         'gratings_only_test': {
