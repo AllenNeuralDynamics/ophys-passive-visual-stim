@@ -233,44 +233,54 @@ def generate_block_trials(block_type, duration_minutes, oddball_config=None, var
     if block_type == 'standard_control':
         # Control block 1: 14 orientations + omissions + halts, shuffled
         # Similar to sequential_control_block but with standard trial duration (343ms)
-        
+
+        stim_duration = block_config.get('stim_duration_s', DEFAULT_PARAMS['Duration']) if block_config else DEFAULT_PARAMS['Duration']
+        isi_duration = block_config.get('isi_duration_s', DEFAULT_PARAMS['Delay']) if block_config else DEFAULT_PARAMS['Delay']
+        trial_period = stim_duration + isi_duration
+
         # 14 directions (every 22.5 degrees)
         orientations = list(np.arange(0, 360, 22.5)[:14])  # 14 orientations
-        n_repeats = max(1, int(duration_minutes * 60 / (len(orientations) + 2) / 0.686))  # +2 for omission and halt types
-        
+        n_repeats = max(1, int(duration_minutes * 60 / (len(orientations) + 2) / trial_period))  # +2 for omission and halt types
+
         all_trials_pool = []
-        
+
         # Add orientation trials
         for orientation in orientations:
             for _ in range(n_repeats):
                 trial = DEFAULT_PARAMS.copy()
+                trial['Duration'] = stim_duration
+                trial['Delay'] = isi_duration
                 trial['Orientation'] = orientation
                 trial['Trial_Type'] = 'single'
                 trial['Block_Type'] = 'standard_control'
                 trial['DiameterX'] = DEFAULT_STIMULUS_SIZE
                 trial['DiameterY'] = DEFAULT_STIMULUS_SIZE
                 all_trials_pool.append(trial)
-        
+
         # Add omission trials (same number of repeats)
         for _ in range(n_repeats):
             trial = DEFAULT_PARAMS.copy()
+            trial['Duration'] = stim_duration
+            trial['Delay'] = isi_duration
             trial['Contrast'] = 0
             trial['Trial_Type'] = 'omission'
             trial['Block_Type'] = 'standard_control'
             trial['DiameterX'] = DEFAULT_STIMULUS_SIZE
             trial['DiameterY'] = DEFAULT_STIMULUS_SIZE
             all_trials_pool.append(trial)
-        
+
         # Add halt trials (same number of repeats)
         for _ in range(n_repeats):
             trial = DEFAULT_PARAMS.copy()
+            trial['Duration'] = stim_duration
+            trial['Delay'] = isi_duration
             trial['Temporal_Frequency'] = 0
             trial['Trial_Type'] = 'halt'
             trial['Block_Type'] = 'standard_control'
             trial['DiameterX'] = DEFAULT_STIMULUS_SIZE
             trial['DiameterY'] = DEFAULT_STIMULUS_SIZE
             all_trials_pool.append(trial)
-        
+
         # Shuffle all trials
         random.shuffle(all_trials_pool)
         trials.extend(all_trials_pool)
@@ -808,15 +818,20 @@ def generate_motor_block_trials(block_type, duration_minutes, oddball_config, va
     
     return trials
 
-def generate_single_session_csv(session_type, output_path, seed=None):
+def generate_single_session_csv(session_type, output_path, seed=None,
+                                stim_duration_s=None, isi_duration_s=None,
+                                session_duration_minutes=None):
     """
     Generate a single session CSV file for the specified session type.
-    
+
     Args:
         session_type (str): Type of session ('visual_mismatch', 'sensorimotor_mismatch', etc.)
         output_path (str): Path where the CSV file should be saved
         seed (int, optional): Random seed for reproducibility
-        
+        stim_duration_s (float, optional): Stimulus on-time in seconds. Only used by 'gratings_only'.
+        isi_duration_s (float, optional): Inter-stimulus interval in seconds. Only used by 'gratings_only'.
+        session_duration_minutes (float, optional): Block duration in minutes. Only used by 'gratings_only'.
+
     Returns:
         bool: True if successful, False otherwise
     """
@@ -1037,10 +1052,12 @@ def generate_single_session_csv(session_type, output_path, seed=None):
         },
         'gratings_and_zebra': {
             'blocks': [
-                {'type': 'standard_control', 'duration_minutes': 5, 'label': 'Gratings sweep 1'},
-                {'type': 'movie_zebra', 'duration_minutes': 15, 'label': 'Zebra',
-                 'movie_duration_s': 300, 'repeats': 3, 'width': 120, 'height': 95},
-                {'type': 'standard_control', 'duration_minutes': 5, 'label': 'Gratings sweep 2'},
+                {'type': 'gray_screen', 'duration_minutes': 0.5, 'label': 'Spontaneous'},
+                {'type': 'standard_control', 'duration_minutes': 5, 'label': 'Gratings',
+                 'stim_duration_s': 2.0, 'isi_duration_s': 1.0},
+                {'type': 'movie_zebra', 'duration_minutes': 5, 'label': 'Zebra',
+                 'movie_duration_s': 300, 'repeats': 1, 'width': 120, 'height': 95},
+                {'type': 'gray_screen', 'duration_minutes': 1, 'label': 'Spontaneous end'},
             ]
         },
         'zebra_only_2rep': {
@@ -1055,6 +1072,11 @@ def generate_single_session_csv(session_type, output_path, seed=None):
             'blocks': [
                 {'type': 'standard_control', 'duration_minutes': 0.5, 'label': 'Drifting gratings'},
             ]
+        },
+        'gratings_only': {
+            'blocks': [
+                {'type': 'standard_control', 'duration_minutes': 5.0, 'label': 'Drifting gratings'},
+            ]
         }
     }
     
@@ -1063,7 +1085,17 @@ def generate_single_session_csv(session_type, output_path, seed=None):
         session_type = 'sensorimotor_mismatch_no_oddball'
     elif session_type == 'sequence_no_oddball':
         session_type = 'sequence_mismatch_no_oddball'
-    
+
+    # Apply per-run overrides for the gratings_only session type
+    if session_type == 'gratings_only':
+        block = session_configs['gratings_only']['blocks'][0]
+        if session_duration_minutes is not None:
+            block['duration_minutes'] = session_duration_minutes
+        if stim_duration_s is not None:
+            block['stim_duration_s'] = stim_duration_s
+        if isi_duration_s is not None:
+            block['isi_duration_s'] = isi_duration_s
+
     if session_type not in session_configs:
         print("Error: Unknown session type '%s'" % session_type)
         print("Available session types: %s" % ', '.join(session_configs.keys()))
