@@ -7,7 +7,7 @@ All Bonsai workflows should go into `./src`, along with the `Extensions` folder.
 ## Deployment
 
 To deploy the Bonsai code, run `./bonsai/setup.cmd`. This small script will download and regenerate the current Bonsai environment ([see tutorial for further details.](https://bonsai-rx.org/docs/articles/environments.html)).
-Each time you change a project dependency via the `Package Manager`, the `Bonsai.Config` file will be updated. Only commit those changes after removing the machine-generated sections (see [Bonsai.config rules](#bonsaiconfig-rules)).
+Each time you change a project dependency via the `Package Manager`, the `Bonsai.Config` file will be updated. Read [Bonsai.config: fresh installs vs existing installs](#bonsaiconfig-fresh-installs-vs-existing-installs) before committing it.
 
 ### How the install works
 
@@ -15,7 +15,7 @@ Each time you change a project dependency via the `Package Manager`, the `Bonsai
 2. `setup.ps1` only downloads Bonsai if `bonsai/Bonsai.exe` is missing. It then runs `Bonsai.exe --no-editor`.
 3. That first launch installs every package listed in `bonsai/Bonsai.config` into `bonsai/Packages/`.
 
-The Bonsai version comes from the download URL in `setup.ps1`. The package versions come from `Bonsai.config`. If `Bonsai.exe` already exists, nothing is re-downloaded, so editing `Bonsai.config` has no effect until the packages are reinstalled (see below).
+The `Bonsai` and `Bonsai.Core` entries in `Bonsai.config` set the Bonsai version that runs (the zip that `setup.ps1` downloads is the starter that installs it). The other package versions also come from `Bonsai.config`. If `Bonsai.exe` already exists, nothing is re-downloaded and `setup.cmd` is not run, so editing `Bonsai.config` has no effect until the packages are reinstalled (see below).
 
 ---
 
@@ -38,20 +38,33 @@ Those are needed to run Bonsai workflows onto the allen institute rigs with HARP
 
 ---
 
-## Bonsai.config rules
+## Bonsai.config: fresh installs vs existing installs
 
-`bonsai/Bonsai.config` must contain only `<Packages>` and `<AssemblyReferences>`. Bonsai adds two more sections every time it runs:
+`bonsai/Bonsai.config` always has `<Packages>` and `<AssemblyReferences>`. When the install step runs (`setup.cmd` → `Bonsai.exe --no-editor`), Bonsai adds two more sections to it:
 
 - `<AssemblyLocations>` (paths such as `Packages/<id>.<version>/lib/...`)
 - `<LibraryFolders>`
 
-**Never commit these two sections.** They point at `Packages/` folders that do not exist on a fresh install, which breaks it. Before committing `Bonsai.config`, check that this returns nothing:
+These two sections matter in opposite ways:
+
+| Situation | Config it needs |
+|---|---|
+| **Fresh install** (`Bonsai.exe` and `Packages/` do not exist yet) | **A config WITHOUT `<AssemblyLocations>` and `<LibraryFolders>`.** They point at `Packages/` folders that do not exist yet, and a fresh install from a config that has them fails. |
+| **Existing install** (`Packages/` already installed) | **A config WITH those two sections.** Bonsai cannot find its assemblies without them, and only the install step writes them. |
+
+Check which form a checkout has:
 
 ```
 findstr /i "AssemblyLocation LibraryFolder" bonsai\Bonsai.config
 ```
 
-If it does return lines, delete the whole `<AssemblyLocations>...</AssemblyLocations>` and `<LibraryFolders>...</LibraryFolders>` blocks before committing. Do not commit `bonsai/Bonsai.config.backup` either.
+No output means the fresh-install form. Output means the form for an existing install.
+
+**What this means in practice**
+- **Fresh install:** before the first run, make sure `bonsai\Bonsai.config` is the form without the two sections. If it has them, delete the whole `<AssemblyLocations>...</AssemblyLocations>` and `<LibraryFolders>...</LibraryFolders>` blocks first. The install then writes the sections itself.
+- **The launcher resets the repo when it switches commits.** It runs `git reset --hard`, which restores the committed `Bonsai.config` and discards what the install wrote. `Packages/` and `Bonsai.exe` are git-ignored, so they stay. If the committed config has no location sections, the existing install stops working (Bonsai cannot find its assemblies) until the install step is run again. The launcher only runs `setup.cmd` when `Bonsai.exe` is missing, so it will not do this by itself.
+- A pinned commit therefore has to match how it will be used: a commit whose config has the sections for installs that already exist, and the fresh-install form for new rigs.
+- Do not commit `bonsai/Bonsai.config.backup` (it was removed from the repo).
 
 ## Troubleshooting
 
@@ -78,6 +91,10 @@ The folders are `%UserProfile%\.nuget\packages`, `%LocalAppData%\NuGet\v3-cache`
 ### Files are missing from the clone (for example `src/Extensions` is empty)
 
 Run `git status`. If tracked files show as deleted, restore them with `git restore .`, or reset the clone to the pinned commit with `git reset --hard <commit>`. This discards local changes, so check `git status` first. Do not share one clone between workflows that run at the same time. Give each workflow its own clone and `local_repository_path`.
+
+### Bonsai cannot find assemblies after the launcher switched commits
+
+A launch that worked before now fails to find assemblies, and `bonsai\Bonsai.config` has no `AssemblyLocation` lines. The launcher's `git reset --hard` restored a config without them while `Packages/` was still installed. Run `bonsai\setup.cmd` once to regenerate them (it does not re-download Bonsai when `Bonsai.exe` exists). See [Bonsai.config: fresh installs vs existing installs](#bonsaiconfig-fresh-installs-vs-existing-installs).
 
 ### Bonsai exits with code 3762504530 (0xE0434352)
 
